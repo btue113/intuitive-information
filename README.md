@@ -9,18 +9,24 @@ posts/<date>-<slug>/
   index.md      the post (front matter: title, date, draft, series, tags)
   figures/      images and GIFs, linked relatively from index.md
   source/       SVG originals and the scripts that generate the figures
-  original.pdf  (part 1 only) the 2013 Word export the text was transcribed from
+  original.pdf  (part 1 only) the 2013 Word export the post was transcribed from
 ```
 
 ## Posts
 
 | Date | Post | Status |
 | --- | --- | --- |
-| 2013-04-01 | Just another generalized version of Hamming Code – Hypercube representation | transcribed from the PDF; figures still to export from the Word file in OneDrive |
+| 2013-04-01 | Just another generalized version of Hamming Code – Hypercube representation | draft; proofread, figures redrawn (5 figures, 3 GIFs), unfinished ending completed |
 | 2026-10-08 | Part 2 – Reed–Muller codes on the hypercube | draft; reconstruction of the lost 2013 sequel |
 
 Part 2 explains only the original 2013 ECC-HyperCube algorithm (github.com/bomot113/ECC-HyperCube).
 Later optimizations belong in a separate post.
+
+## Regenerating part 1's figures
+
+From `posts/2013-04-01-hamming-hypercube/source/`: `p1fig1.py`, `p1cube_figs.py`, `p1hyper_figs.py`
+write the SVGs (and the cube GIF's frames); `p1tess_gifs.py` writes the tesseract GIF frames from
+the 2013 one-error test vectors. Render and assemble the same way as part 2.
 
 ## Regenerating part 2's figures
 

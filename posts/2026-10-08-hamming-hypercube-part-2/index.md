@@ -8,19 +8,19 @@ tags: [error-correcting-codes, hamming, reed-muller, hypercube]
 
 *A reconstruction. The original sequel to "Just another generalized version of Hamming Code – Hypercube representation" (April 1, 2013) was lost. This version rebuilds it from that post and from the [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube) code that followed it (first commit August 29, 2013). The ideas are the 2013 ones; the wording and examples are new.*
 
-## From the cube to the tesseract
+## Same tesseract, one level deeper
 
-In part 1, seven audience members sat on the corners of a cube, and the magician caught one cheater. The groups were the faces of the cube, and the three lightest corners held the parity bits. Now let's go one dimension up, and one level deeper.
+Part 1 ended with a problem. On the cube, two cheaters made the faces point at an innocent seat, and the magician blamed number 4. The tesseract version, Hamming (15, 11), has the same weakness: its four groups catch one cheater, never two.
 
-A tesseract is just two of part 1's cubes, drawn as in part 1: a small cube inside a big one. The inner cube holds the corners whose names start with 0, the outer cube those starting with 1, and every corner is joined to its twin. That makes 16 corners. As before, the empty corner 0000 sits out, so 15 audience members take a seat.
+So let's keep part 1's tesseract, with its 15 seats, corner 0000 left empty, the inner cube for names starting with 0 and the outer cube for names starting with 1, and change just one thing. Parity no longer stops at the corners with a single 1 in their name. It goes one level deeper: every corner with one or two 1s computes a parity bit, and only the five heaviest corners keep a secret. In my program that's the second parity dimension, `CubeCode(4, 2)`.
 
-This time parity doesn't stop at the corners with a single 1 in their name. It goes one level deeper: every corner with one or two 1s computes a parity bit, and only the five heaviest corners keep a secret. In my program that is the second parity dimension, `CubeCode(4, 2)`.
+![Same tesseract, parity one level deeper](figures/figure1.png)
 
-![From 1 to 2 parity dimensions](figures/figure1.png)
+That costs secrets, 5 instead of 11, but it buys a lot: as we'll see, this tesseract catches up to three cheaters.
 
 ## Encoding: every group stays even
 
-Every parity corner owns a group: itself, plus every corner that has a 1 wherever it has a 1. A corner with one 1, like 1000, owns a whole cube: the outer one. That's exactly a face from part 1, one dimension up. A corner with two 1s, like 0110, owns a square; that one links the inner and outer cubes. The rule is the same as before: each group must hold an even number of 1s.
+Every parity corner owns a group: itself, plus every corner that has a 1 wherever it has a 1. A corner with one 1, like 1000, owns a whole cube: the outer one. Those four cube groups are exactly part 1's. A corner with two 1s, like 0110, owns a square; that one links the inner and outer cubes. The rule is the same as before: each group must hold an even number of 1s.
 
 Let's hide the secrets 1, 0, 1, 1, 0. Squares first: each two-1 corner looks at the three corners above it and evens out its square. Then each one-1 corner evens out its whole cube. The program sends the 15 bits in its own order, 101100011000110, the same answer as my 2013 test.
 
