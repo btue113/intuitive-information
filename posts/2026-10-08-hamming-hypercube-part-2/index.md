@@ -1,12 +1,12 @@
 ---
-title: "Just another generalized version of Hamming Code, part 2 – Reed–Muller codes on the hypercube"
+title: "Catching three cheaters with a tesseract: Reed–Muller codes on the hypercube (part 2)"
 date: 2026-10-08
 draft: true
 series: "Hamming codes on the hypercube"
 tags: [error-correcting-codes, hamming, reed-muller, hypercube]
 ---
 
-*A reconstruction. The original sequel to "Just another generalized version of Hamming Code – Hypercube representation" (April 1, 2013) was lost. This version rebuilds it from that post and from the [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube) code that followed it (first commit August 29, 2013). The ideas are the 2013 ones; the wording and examples are new.*
+*A reconstruction. The original sequel to part 1 (April 1, 2013, first published as "Just another generalized version of Hamming Code – Hypercube representation") was lost. This version rebuilds it from that post and from the [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube) code that followed it (first commit August 29, 2013). The ideas are the 2013 ones; the wording and examples are new.*
 
 ## Same tesseract, one level deeper
 
@@ -120,7 +120,7 @@ The trick became [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube), wri
 
 ## References
 
-1. Bui, T. (2013). Just another generalized version of Hamming Code – Hypercube representation. *Intuitive Information* (part 1 of this series).
+1. Bui, T. (2013). Catching a cheater with a cube: Hamming codes on the hypercube (part 1). *Intuitive Information*. First published as "Just another generalized version of Hamming Code – Hypercube representation".
 2. Reed, I. S. (1954). A class of multiple-error-correcting codes and the decoding scheme. *Transactions of the IRE Professional Group on Information Theory*, 4, 38–49.
 3. Muller, D. E. (1954). Application of Boolean algebra to switching circuit design and to error detection. *Transactions of the IRE Professional Group on Electronic Computers*, EC-3.
 4. Abbe, E., Shpilka, A., Ye, M. (2021). [Reed–Muller codes: theory and algorithms](https://arxiv.org/abs/2002.03317). *IEEE Transactions on Information Theory*, 67(6).

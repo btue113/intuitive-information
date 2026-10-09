@@ -16,8 +16,8 @@ posts/<date>-<slug>/
 
 | Date | Post | Status |
 | --- | --- | --- |
-| 2013-04-01 | Just another generalized version of Hamming Code – Hypercube representation | draft; proofread, figures redrawn (5 figures, 3 GIFs), unfinished ending completed |
-| 2026-10-08 | Part 2 – Reed–Muller codes on the hypercube | draft; reconstruction of the lost 2013 sequel |
+| 2013-04-01 | Catching a cheater with a cube: Hamming codes on the hypercube (part 1) | draft; proofread, figures redrawn (5 figures, 3 GIFs), unfinished ending completed |
+| 2026-10-08 | Catching three cheaters with a tesseract: Reed–Muller codes on the hypercube (part 2) | draft; reconstruction of the lost 2013 sequel |
 
 Part 2 explains only the original 2013 ECC-HyperCube algorithm (github.com/bomot113/ECC-HyperCube).
 Later optimizations belong in a separate post.
