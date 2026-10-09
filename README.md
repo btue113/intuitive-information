@@ -16,8 +16,8 @@ posts/<date>-<slug>/
 
 | Date | Post | Status |
 | --- | --- | --- |
-| 2013-04-01 | Catching a cheater with a cube: Hamming codes on the hypercube (part 1) | draft; proofread, figures redrawn (5 figures, 3 GIFs), unfinished ending completed |
-| 2026-10-08 | Catching three cheaters with a tesseract: Reed–Muller codes on the hypercube (part 2) | draft; reconstruction of the lost 2013 sequel |
+| 2013-04-01 | Catching a cheater with a cube: Hamming codes on the hypercube (part 1) | published; proofread, figures redrawn (5 figures, 3 GIFs), unfinished ending completed |
+| 2026-10-08 | Catching three cheaters with a tesseract: Reed–Muller codes on the hypercube (part 2) | published; reconstruction of the lost 2013 sequel |
 
 Part 2 explains only the original 2013 ECC-HyperCube algorithm (github.com/bomot113/ECC-HyperCube).
 Later optimizations belong in a separate post.
@@ -41,3 +41,10 @@ python3 gif_encode.py && python3 detect_gif.py                                # 
 GIF frames are rendered with headless Chrome at 1x and assembled with Pillow
 (`~/miniconda3/bin/python`). `trace.py` and `trace2.py` replay the 2013 decoder step by step
 on the example words; `search2.py` found the cube-in-cube layout.
+
+## Site
+
+Built with Hugo (`hugo.toml`, `layouts/`, `static/style.css`; `posts/` is mounted as the content
+section, `source/` folders are not published) and deployed to GitHub Pages by
+`.github/workflows/hugo.yml` on every push to `main`. Preview locally with `hugo server`.
+New posts go in `posts/<date>-<slug>/index.md` with a `slug:` in the front matter.

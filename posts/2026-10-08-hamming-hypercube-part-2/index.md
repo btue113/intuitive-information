@@ -1,7 +1,8 @@
 ---
 title: "Catching three cheaters with a tesseract: Reed–Muller codes on the hypercube (part 2)"
 date: 2026-10-08
-draft: true
+draft: false
+slug: hamming-hypercube-part-2
 series: "Hamming codes on the hypercube"
 tags: [error-correcting-codes, hamming, reed-muller, hypercube]
 ---

@@ -1,0 +1,4 @@
+{{ define "main" }}
+<p class="tagline">{{ site.Params.description }}</p>
+{{ partial "postlist.html" (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{ end }}

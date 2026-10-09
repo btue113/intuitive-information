@@ -1,7 +1,8 @@
 ---
 title: "Catching a cheater with a cube: Hamming codes on the hypercube (part 1)"
 date: 2013-04-01
-draft: true
+draft: false
+slug: hamming-hypercube
 series: "Hamming codes on the hypercube"
 tags: [error-correcting-codes, hamming, hypercube]
 ---
