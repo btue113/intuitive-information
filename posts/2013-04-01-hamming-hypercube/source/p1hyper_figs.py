@@ -28,8 +28,14 @@ def simple_cube(ox, oy, s, dims, removed=False, unit=False, sum_to=None, labels=
     if unit:
         for k in range(dims):
             out.append(arrow(pos[0], pos[1 << k], ARROW, 'ua', r))
-    if sum_to is not None:
-        out.append(arrow(pos[0], pos[sum_to], SUM, 'sa', r))
+    if sum_to is not None:   # walk the unit vectors head to tail, along the cube's own edges
+        at, off = 0, 7
+        for step in sum_to:
+            p, q = pos[at], pos[at | step]
+            dx, dy = q[0] - p[0], q[1] - p[1]; ln = math.hypot(dx, dy)
+            ox_, oy_ = -dy / ln * off, dx / ln * off      # shift sideways so blue arrows stay visible
+            out.append(arrow((p[0] + ox_, p[1] + oy_), (q[0] + ox_, q[1] + oy_), SUM, 'sa', r))
+            at |= step
     for c in range(n):
         x, y = pos[c]
         if removed and c == 0:
@@ -59,9 +65,9 @@ open("fig3.svg", "w").write(svg(1240, 1045, body))
 
 # ---------- figure 4: Q2, Q3, Q4 from unit vectors ----------
 body = defs + text(40, 52, "n unit vectors and vector addition place every corner of an n-cube", size=28, weight=700, anchor='start')
-body += simple_cube(90, 170, 0.75, 2, unit=True, sum_to=0b11, r=13) + text(190, 450, "Q2 (square)", size=19, weight=700) + text(190, 476, "(0, 1) + (1, 0) = (1, 1)", size=16, color=SUM)
-body += simple_cube(470, 200, 0.62, 3, unit=True, sum_to=0b101, r=13) + text(610, 450, "Q3 (cube)", size=19, weight=700) + text(610, 476, "(0, 0, 1) + (1, 0, 0) = (1, 0, 1)", size=16, color=SUM)
-body += simple_cube(150, 640, 0.6, 4, unit=True, sum_to=0b1011, r=13) + text(420, 1058, "Q4 (tesseract)", size=19, weight=700) + text(420, 1084, "(1, 0, 0, 0) + (0, 0, 1, 0) + (0, 0, 0, 1) = (1, 0, 1, 1)", size=16, color=SUM)
+body += simple_cube(90, 170, 0.75, 2, unit=True, sum_to=[0b01, 0b10], r=13) + text(190, 450, "Q2 (square)", size=19, weight=700) + text(190, 476, "(0, 1) + (1, 0) = (1, 1)", size=16, color=SUM)
+body += simple_cube(470, 200, 0.62, 3, unit=True, sum_to=[0b001, 0b100], r=13) + text(610, 450, "Q3 (cube)", size=19, weight=700) + text(610, 476, "(0, 0, 1) + (1, 0, 0) = (1, 0, 1)", size=16, color=SUM)
+body += simple_cube(150, 640, 0.6, 4, unit=True, sum_to=[0b1000, 0b0010, 0b0001], r=13) + text(420, 1058, "Q4 (tesseract)", size=19, weight=700) + text(420, 1084, "(1, 0, 0, 0) + (0, 0, 1, 0) + (0, 0, 0, 1) = (1, 0, 1, 1)", size=16, color=SUM)
 body += f"<line x1='760' y1='640' x2='800' y2='640' stroke='{ARROW}' stroke-width='3.5' marker-end='url(#ua)'/>" + text(810, 646, "unit vectors from the zero corner", size=16, anchor='start')
-body += f"<line x1='760' y1='670' x2='800' y2='670' stroke='{SUM}' stroke-width='3.5' marker-end='url(#sa)'/>" + text(810, 676, "a sum of unit vectors", size=16, anchor='start')
+body += f"<line x1='760' y1='670' x2='800' y2='670' stroke='{SUM}' stroke-width='3.5' marker-end='url(#sa)'/>" + text(810, 676, "their sum: walk the unit vectors head to tail", size=16, anchor='start')
 open("fig4.svg", "w").write(svg(1240, 1110, body))
