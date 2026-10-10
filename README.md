@@ -47,4 +47,6 @@ on the example words; `search2.py` found the cube-in-cube layout.
 Built with Hugo (`hugo.toml`, `layouts/`, `static/style.css`; `posts/` is mounted as the content
 section, `source/` folders are not published) and deployed to GitHub Pages by
 `.github/workflows/hugo.yml` on every push to `main`. Preview locally with `hugo server`.
-New posts go in `posts/<date>-<slug>/index.md` with a `slug:` in the front matter.
+New posts go in `posts/<date>-<slug>/index.md` with `slug:`, `description:` (shown on the front page)
+and, for a series, `series:` and `part:` in the front matter, plus a `cover.svg` for the front-page card.
+`tools/art.py` regenerates the hero tesseract (`layouts/_partials/tesseract.html`) and both covers.

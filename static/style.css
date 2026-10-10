@@ -6,6 +6,7 @@
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.65 Georgia, "Times New Roman", serif; }
 header.site, main, footer.site { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+body:has(.hero) header.site, body:has(.hero) footer.site { max-width: 1040px; }
 header.site { display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); font-family: system-ui, sans-serif; }
 header.site nav a { margin-left: 16px; }
 .brand { font-weight: 700; color: var(--fg); text-decoration: none; }
@@ -23,3 +24,49 @@ code { background: var(--code); padding: 1px 4px; border-radius: 3px; font-size:
 blockquote { border-left: 3px solid var(--rule); margin-left: 0; padding-left: 16px; color: var(--muted); }
 .prevnext { display: flex; justify-content: space-between; gap: 16px; margin: 3em 0 1em; padding-top: 1em; border-top: 1px solid var(--rule); font-family: system-ui, sans-serif; font-size: 0.9em; }
 footer.site { padding-top: 2em; padding-bottom: 2em; }
+
+/* front page */
+:root { --data: #5b9bf0; --p1: #f5b700; --p2: #b48be8; --edge: #d63384; --panel: #f4f3ee; }
+@media (prefers-color-scheme: dark) { :root { --panel: #202124; } }
+main:has(.hero) { max-width: 1040px; }
+.hero { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; padding: 48px 0 32px; }
+.hero h1 { font-size: 2.6em; margin: 0 0 0.2em; }
+.lede { font-size: 1.3em; color: var(--muted); margin: 0 0 1em; font-style: italic; }
+.button { display: inline-block; margin-top: 0.6em; padding: 10px 20px; border-radius: 6px; background: var(--edge); color: #fff; text-decoration: none; font-family: system-ui, sans-serif; font-weight: 600; }
+.button:hover { filter: brightness(1.1); }
+.hero-art svg { width: 100%; height: auto; display: block; }
+.legend { text-align: center; font: 0.8em system-ui, sans-serif; color: var(--muted); margin: 8px 0 0; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--edge); margin: 0 4px 0 14px; vertical-align: -1px; }
+.dot.d3 { background: var(--data); } .dot.d2 { background: var(--p2); } .dot.d1 { background: var(--p1); }
+
+.tess line { stroke: var(--edge); stroke-width: 3; }
+.tess line.e4 { stroke-opacity: 0.45; }
+.tess line.e0 { stroke: var(--muted); stroke-opacity: 0.5; stroke-dasharray: 6 6; stroke-width: 2; }
+.tess circle { stroke: var(--edge); stroke-width: 3; fill: var(--bg); }
+.tess circle.n0 { stroke: var(--muted); stroke-opacity: 0.6; stroke-dasharray: 5 5; }
+.tess .n3 { fill: var(--data); animation: fill3 9s infinite; }
+.tess .n2 { fill: var(--p2); animation: fill2 9s infinite; }
+.tess .n1 { fill: var(--p1); animation: fill1 9s infinite; }
+/* starts filled; every cycle empties, then refills heaviest layer first, like encoding */
+@keyframes fill3 { 0%, 60% { fill: var(--data); } 64%, 70% { fill: var(--bg); } 74%, 100% { fill: var(--data); } }
+@keyframes fill2 { 0%, 60% { fill: var(--p2); } 64%, 80% { fill: var(--bg); } 84%, 100% { fill: var(--p2); } }
+@keyframes fill1 { 0%, 60% { fill: var(--p1); } 64%, 90% { fill: var(--bg); } 94%, 100% { fill: var(--p1); } }
+@media (prefers-reduced-motion: reduce) { .tess circle { animation: none; } }
+
+.series, .about { padding: 24px 0; border-top: 1px solid var(--rule); }
+.kicker { display: block; font-size: 0.55em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--edge); margin-bottom: 4px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; color: var(--fg); text-decoration: none; background: var(--bg); transition: transform .15s, box-shadow .15s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.cover { background: var(--panel); padding: 20px 32px; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; }
+.cover img { max-width: 100%; max-height: 100%; }
+.card-body { padding: 16px 20px 20px; }
+.card h3 { margin: 0.2em 0 0.4em; font-size: 1.15em; }
+.card p { margin: 0; font-size: 0.95em; }
+.card .meta { margin-bottom: 0.3em; }
+.about p { max-width: 640px; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 24px; }
+  .hero h1 { font-size: 2em; }
+}

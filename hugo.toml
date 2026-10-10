@@ -2,6 +2,7 @@ baseURL = "https://btue113.github.io/intuitive-information/"
 locale = "en-US"
 title = "Intuitive Information"
 buildFuture = true
+titleCaseStyle = "none"
 enableRobotsTXT = true
 
 [params]
