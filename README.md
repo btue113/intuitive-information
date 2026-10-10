@@ -50,3 +50,12 @@ section, `source/` folders are not published) and deployed to GitHub Pages by
 New posts go in `posts/<date>-<slug>/index.md` with `slug:`, `description:` (shown on the front page)
 and, for a series, `series:` and `part:` in the front matter, plus a `cover.svg` for the front-page card.
 `tools/art.py` regenerates the hero tesseract (`layouts/_partials/tesseract.html`) and both covers.
+
+## Hosting on AWS (tuebui.com)
+
+`infra/site.yaml` (CloudFormation, us-east-1) creates the private S3 bucket, the CloudFront
+distribution with its certificate, the Route 53 records for `tuebui.com` and `www`, and a
+GitHub Actions role limited to this repo's `main` branch. `.github/workflows/deploy-aws.yml`
+builds the site, syncs it to the bucket and invalidates the CloudFront cache. It runs once the
+repository variables `AWS_ROLE_ARN`, `S3_BUCKET` and `CLOUDFRONT_DISTRIBUTION_ID` are set
+from the stack's outputs.
