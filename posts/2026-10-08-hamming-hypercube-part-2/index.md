@@ -9,7 +9,7 @@ series: "Hamming codes on the hypercube"
 tags: [error-correcting-codes, hamming, reed-muller, hypercube]
 ---
 
-*A reconstruction. The original sequel to part 1 (April 1, 2013, first published as "Just another generalized version of Hamming Code – Hypercube representation") was lost. This version rebuilds it from that post and from the [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube) code that followed it (first commit August 29, 2013). The ideas are the 2013 ones; the wording and examples are new.*
+*A reconstruction. The original sequel to part 1 (April 1, 2013, first published as "Just another generalized version of Hamming Code – Hypercube representation") was lost. This version rebuilds it from that post and from the [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube) code that followed it (first commit August 29, 2013, kept unchanged as the record of the original). The ideas are the 2013 ones; the wording and examples are new.*
 
 ## Same tesseract, one level deeper
 
@@ -121,6 +121,8 @@ That's the whole pattern. Part 1 put parity one level deep and caught one cheate
 
 The trick became [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube), written in C++ between August and October 2013. Its classes are this post's words: a `HyperCube`, a `UnitCube` per corner, and `parallelHCubes` for the witnesses. One parameter, the parity depth m − r − 1, picks the code: depth 1 gives part 1's Hamming code, depth 2 gives this post's.
 
+That 2013 repository stays as it was, as a dated record. If you want to read or run the algorithm today, use the [Rust port](https://github.com/btue113/ECC-HyperCube) instead: the same algorithm with clearer code, checked bit-for-bit against the 2013 program's output, and licensed MIT or Apache-2.0.
+
 ## References
 
 1. Bui, T. (2013). Catching a cheater with a cube: Hamming codes on the hypercube (part 1). *Intuitive Information*. First published as "Just another generalized version of Hamming Code – Hypercube representation".
@@ -129,3 +131,5 @@ The trick became [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube), wri
 4. Abbe, E., Shpilka, A., Ye, M. (2021). [Reed–Muller codes: theory and algorithms](https://arxiv.org/abs/2002.03317). *IEEE Transactions on Information Theory*, 67(6).
 5. [Hadamard code](https://en.wikipedia.org/wiki/Hadamard_code), Wikipedia: RM(1, 5) and the Mariner 9 "Green machine".
 6. Rosen, K. H. (2003). *Discrete mathematics and its applications*. Boston: McGraw-Hill (hypercube definition, as in part 1).
+7. Bui, T. (2013). [ECC-HyperCube](https://github.com/bomot113/ECC-HyperCube), the original C++ implementation (August 29 – October 1, 2013).
+8. Bui, T. (2026). [ECC-HyperCube in Rust](https://github.com/btue113/ECC-HyperCube), the maintained port of the same algorithm.
