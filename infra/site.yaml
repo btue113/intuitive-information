@@ -13,6 +13,12 @@ Parameters:
   GitHubRepo:
     Type: String
     Default: btue113/intuitive-information
+  GitHubSubjectPrefix:
+    Type: String
+    Default: "repo:btue113@147756762/intuitive-information@1411423110"
+    Description: >
+      The repo's OIDC subject prefix (gh api repos/OWNER/REPO/actions/oidc/customization/sub).
+      GitHub's immutable form includes the owner and repo IDs, so a renamed or re-created repo can't match.
   CreateGitHubOidcProvider:
     Type: String
     AllowedValues: ["true", "false"]
@@ -178,7 +184,7 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub "repo:${GitHubRepo}:ref:refs/heads/main"
+                token.actions.githubusercontent.com:sub: !Sub "${GitHubSubjectPrefix}:ref:refs/heads/main"
       Policies:
         - PolicyName: deploy-site
           PolicyDocument:
