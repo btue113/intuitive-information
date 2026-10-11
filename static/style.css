@@ -22,6 +22,7 @@ table { border-collapse: collapse; display: block; overflow-x: auto; font-size: 
 th, td { border: 1px solid var(--rule); padding: 4px 10px; }
 code { background: var(--code); padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
 blockquote { border-left: 3px solid var(--rule); margin-left: 0; padding-left: 16px; color: var(--muted); }
+.ask { margin: 2.5em 0 0; padding: 14px 18px; border: 1px solid var(--rule); border-left: 4px solid #d63384; border-radius: 6px; font: 0.9em/1.55 system-ui, sans-serif; }
 .prevnext { display: flex; justify-content: space-between; gap: 16px; margin: 3em 0 1em; padding-top: 1em; border-top: 1px solid var(--rule); font-family: system-ui, sans-serif; font-size: 0.9em; }
 footer.site { padding-top: 2em; padding-bottom: 2em; }
 

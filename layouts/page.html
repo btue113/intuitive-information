@@ -4,6 +4,11 @@
   <p class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
   {{ with .GetTerms "series" }}· series: {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ end }}</p>
   {{ .Content }}
+  <aside class="ask">
+    <strong>Questions or corrections?</strong>
+    Ask in the <a href="{{ site.Params.questions }}">Q&amp;A on GitHub</a>, where answers help the next reader too,
+    or email {{ partial "email.html" . }}.
+  </aside>
   <nav class="prevnext">
     {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
     {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}

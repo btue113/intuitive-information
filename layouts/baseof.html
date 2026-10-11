@@ -20,6 +20,13 @@
     <nav><a href="{{ "series/" | relURL }}">Series</a> <a href="{{ "index.xml" | relURL }}">RSS</a></nav>
   </header>
   <main>{{ block "main" . }}{{ end }}</main>
-  <footer class="site">© {{ now.Year }} {{ site.Params.author }}</footer>
+  <footer class="site">© {{ now.Year }} {{ site.Params.author }} · {{ partial "email.html" . }} · <a href="{{ site.Params.questions }}">Q&amp;A</a></footer>
+  <script>
+    document.querySelectorAll("a.email").forEach(function (a) {
+      var e = a.dataset.u + "@" + a.dataset.d;
+      a.href = "mailto:" + e;
+      a.textContent = e;
+    });
+  </script>
 </body>
 </html>
