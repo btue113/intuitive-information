@@ -160,6 +160,21 @@ Resources:
           Type: AAAA
           AliasTarget: {DNSName: !GetAtt Distribution.DomainName, HostedZoneId: Z2FDTNDATAQYW2}  # CloudFront
 
+  # Email forwarding for hello@tuebui.com through ImprovMX (aliases are managed at improvmx.com).
+  MailRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Ref DomainName
+          Type: MX
+          TTL: "3600"
+          ResourceRecords: ["10 mx1.improvmx.com.", "20 mx2.improvmx.com."]
+        - Name: !Ref DomainName
+          Type: TXT
+          TTL: "3600"
+          ResourceRecords: ['"v=spf1 include:spf.improvmx.com ~all"']
+
   GitHubOidcProvider:
     Type: AWS::IAM::OIDCProvider
     Condition: CreateOidc
