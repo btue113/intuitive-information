@@ -3,6 +3,7 @@ title: "Catching a cheater with a cube: Hamming codes on the hypercube (part 1)"
 date: 2013-04-01
 draft: false
 slug: hamming-hypercube
+aliases: ["/2013/04/hamming-hypercube/"]
 part: 1
 description: "Seven people, one cheater, and a magician who always points at the right one. The trick is a Hamming code, and the picture behind it is a cube with one corner missing."
 series: "Hamming codes on the hypercube"

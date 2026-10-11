@@ -3,6 +3,7 @@ title: "Catching three cheaters with a tesseract: Reed–Muller codes on the hyp
 date: 2026-10-08
 draft: false
 slug: hamming-hypercube-part-2
+aliases: ["/2026/10/hamming-hypercube-part-2/"]
 part: 2
 description: "Same tesseract, one level deeper. Put parity on the squares as well as the cubes, and the group catches up to three cheaters at once: the Reed–Muller code behind my 2013 ECC-HyperCube."
 series: "Hamming codes on the hypercube"

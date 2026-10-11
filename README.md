@@ -1,8 +1,9 @@
-# Intuitive Information
+# tuebui.com
 
-Source for the *Intuitive Information* blog: one folder per post, Markdown with YAML front
-matter, so it can be published to any static site generator (Hugo, Astro, Jekyll, ...) or
-pasted into a hosted platform.
+Source for https://tuebui.com: a personal home page (`content/_index.md`, Markdown) and the
+*Intuitive Information* blog section (`/intuitive-information/`), whose posts are one folder per post, Markdown with YAML front
+matter, in `posts/`. To add a top-level section (resume, views, ...), create
+`content/<name>.md` or `content/<name>/_index.md` and add a line for it in `content/_index.md`.
 
 ```
 posts/<date>-<slug>/

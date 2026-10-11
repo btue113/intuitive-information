@@ -71,3 +71,13 @@ main:has(.hero) { max-width: 1040px; }
   .hero { grid-template-columns: 1fr; padding-top: 24px; }
   .hero h1 { font-size: 2em; }
 }
+
+/* personal home page */
+.home { padding-top: 32px; font-family: system-ui, sans-serif; }
+.home h1 { margin: 0 0 0.2em; }
+.home .sub { color: var(--muted); margin: 0 0 1.8em; }
+.home .sections p { margin: 0 0 1.1em; }
+.home .sections strong a { color: var(--edge); }
+.recent { margin-top: 2.2em; border-top: 1px solid var(--rule); padding-top: 0.6em; }
+.recent summary { cursor: pointer; font-weight: 600; color: var(--edge); padding: 0.4em 0; }
+.recent .count { color: var(--muted); font-weight: 400; font-size: 0.85em; }

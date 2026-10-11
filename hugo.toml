@@ -1,12 +1,12 @@
 baseURL = "https://tuebui.com/"
 locale = "en-US"
-title = "Intuitive Information"
+title = "Tue Bui"
 buildFuture = true
 titleCaseStyle = "none"
 enableRobotsTXT = true
 
 [params]
-  description = "Information theory, drawn instead of derived."
+  description = "Tue Bui: software engineer. Notes, code, and Intuitive Information, a blog that explains information theory with pictures."
   author = "Tue Bui"
   emailUser = "contact"
   emailDomain = "tuebui.com"
@@ -17,14 +17,19 @@ enableRobotsTXT = true
   series = "series"
 
 [permalinks.page]
-  posts = "/:year/:month/:slug/"
+  intuitive-information = "/intuitive-information/:slug/"
 
 [markup.goldmark.renderer]
   unsafe = true
 
 [[module.mounts]]
+  source = "content"
+  target = "content"
+
+# The blog's posts live in posts/ and make up the Intuitive Information section.
+[[module.mounts]]
   source = "posts"
-  target = "content/posts"
+  target = "content/intuitive-information"
   files = ["! **/source/**"]
 
 [[module.mounts]]

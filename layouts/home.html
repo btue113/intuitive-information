@@ -1,43 +1,13 @@
 {{ define "main" }}
-{{ $posts := (where site.RegularPages "Section" "posts").ByDate }}
-<section class="hero">
-  <div class="hero-text">
-    <h1>Intuitive Information</h1>
-    <p class="lede">{{ site.Params.description }}</p>
-    <p>Error-correcting codes, explained with pictures: a room full of people, a magic trick, and a hypercube.
-    If you can tell even from odd and walk along the edges of a cube, you can follow every step.</p>
-    {{ with index $posts 0 }}<a class="button" href="{{ .RelPermalink }}">Start with part 1 →</a>{{ end }}
-  </div>
-  <div class="hero-art">{{ partial "tesseract.html" . }}
-    <p class="legend"><span class="dot d3"></span>secret <span class="dot d2"></span>square parity <span class="dot d1"></span>cube parity</p>
-  </div>
-</section>
-
-{{ range site.Taxonomies.series }}
-<section class="series">
-  <h2><span class="kicker">Series</span> {{ .Page.Title }}</h2>
-  <div class="cards">
-    {{ range .Pages.ByDate }}
-    <a class="card" href="{{ .RelPermalink }}">
-      {{ with .Resources.GetMatch "cover.svg" }}<div class="cover"><img src="{{ .RelPermalink }}" alt="" loading="lazy"></div>{{ end }}
-      <div class="card-body">
-        <p class="meta">{{ with .Params.part }}Part {{ . }} · {{ end }}{{ .Date.Format "Jan 2006" }} · {{ .ReadingTime }} min read</p>
-        <h3>{{ .Title }}</h3>
-        <p>{{ .Description }}</p>
-      </div>
-    </a>
-    {{ end }}
-  </div>
-</section>
-{{ end }}
-
-<section class="about">
-  <h2>About</h2>
-  <p>Written by {{ site.Params.author }}, a software engineer. The blog started in 2013 with part 1;
-  part 2 was lost for years and rebuilt in 2026 from the code that followed it. More posts to come.</p>
-  <p>The code behind the series: <a href="https://github.com/btue113/ECC-HyperCube">ECC-HyperCube</a> (Rust).</p>
-  <p>Questions about the posts or the code: ask in the <a href="{{ site.Params.questions }}">Q&amp;A on GitHub</a>,
-  or email {{ partial "email.html" . }}.</p>
-  <p><a href="{{ "index.xml" | relURL }}">Follow with RSS</a></p>
-</section>
+<div class="home">
+  <h1>{{ .Title }}</h1>
+  <p class="sub">{{ .Description }}</p>
+  <div class="sections">{{ .Content }}</div>
+  {{ with (where site.RegularPages "Section" "intuitive-information").ByDate.Reverse }}
+  <details class="recent" open>
+    <summary>Recent writing <span class="count">({{ len . }})</span></summary>
+    {{ partial "postlist.html" . }}
+  </details>
+  {{ end }}
+</div>
 {{ end }}
