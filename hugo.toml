@@ -8,7 +8,7 @@ enableRobotsTXT = true
 [params]
   description = "Information theory, drawn instead of derived."
   author = "Tue Bui"
-  emailUser = "hello"
+  emailUser = "contact"
   emailDomain = "tuebui.com"
   questions = "https://github.com/btue113/ECC-HyperCube/discussions/categories/q-a"
 
