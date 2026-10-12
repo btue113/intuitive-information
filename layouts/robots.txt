@@ -1,0 +1,19 @@
+# Search engines are welcome. AI training, AI search and AI assistant crawlers are not.
+{{- $bots := slice
+  "GPTBot" "ChatGPT-User" "OAI-SearchBot"
+  "ClaudeBot" "Claude-User" "Claude-SearchBot" "anthropic-ai"
+  "Google-Extended" "Applebot-Extended" "CCBot"
+  "PerplexityBot" "Perplexity-User" "Bytespider" "Amazonbot"
+  "meta-externalagent" "meta-externalfetcher" "FacebookBot"
+  "cohere-ai" "cohere-training-data-crawler" "Diffbot" "AI2Bot"
+  "MistralAI-User" "DuckAssistBot" "YouBot" "Timpibot" "omgili" "ImagesiftBot"
+}}
+{{ range $bots }}
+User-agent: {{ . }}
+Disallow: /
+{{ end }}
+
+User-agent: *
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}
